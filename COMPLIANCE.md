@@ -3,7 +3,7 @@
 Designed against the Advocates Act 1961 (s.35) and Bar Council of India (BCI) Rules, Part VI, Ch. II, s.V, **Rule 36** (no solicitation/advertising) as I understand them. Rules are amended from time to time – **the advocate must verify the final site against the current BCI Rules and their State Bar Council's directions.** This is not legal advice.
 
 ## Content policy: nothing is invented
-Only two facts are stated as true: the advocate's **name** and that they practise as an **Advocate before the High Court of Andhra Pradesh**. Everything else is a `[BRACKETED PLACEHOLDER]` (class `ph`, dashed underline). The public site therefore carries `noindex, nofollow` until it is filled.
+Only these facts are stated as true: the advocate's **name**, that they practise as an **Advocate before the High Court of Andhra Pradesh**, and their **telephone number** (all supplied by the advocate). Everything else is a `[BRACKETED PLACEHOLDER]` (class `ph`, dashed underline). The public site therefore carries `noindex, nofollow` until it is filled.
 
 ### To go live
 1. Replace every `[PLACEHOLDER]` in `index.html` (search for `class="ph"`), and in `terms.html` / `privacy.html` (contact email, place of jurisdiction).
@@ -12,6 +12,13 @@ Only two facts are stated as true: the advocate's **name** and that they practis
 4. Replace the illustrated gallery (`assets/g1–g6.svg`) with the advocate's own photographs of chambers/library only, or delete the gallery block.
 5. Update canonical/OG URLs, `sitemap.xml` and `robots.txt` if the domain changes.
 6. Have the advocate/counsel review Terms and Privacy text.
+
+## QR codes and digital visiting card
+- Telephone **+91 95050 78050** (supplied by the advocate) is shown in Contact; its QR encodes `tel:+919505078050`.
+- Second QR links to `card.html`, generated in the browser from the page's own address, so it stays correct if the domain changes. Printed copies of the QR must be regenerated only if the domain changes (download the card again from the new address).
+- `card.html` offers PNG, PDF (3.5 × 2 in) and `.vcf` (save to contacts). All built in the browser – no external service, nothing uploaded.
+- The card carries identification and contact details only (name, "Advocate", court, phone; email/address are skipped until added in `assets/card.js`). No photograph, tagline, practice-area claims or promotional wording – keep it that way. A visiting card is conventionally acceptable, but confirm the wording with the State Bar Council.
+- QR libraries: `assets/qrcode.js` is qrcode-generator (MIT, Kazuhiko Arase).
 
 ## Shown (permitted, factual)
 Name; contact details; enrolment number/date; State Bar Council; qualifications; areas of practice; bar memberships/positions; languages; courts; publications (citations only).

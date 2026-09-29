@@ -261,3 +261,16 @@ noscript .ns{padding:16px 22px;background:var(--ivory);color:var(--txl);font-siz
  .cursor{display:none}
 }
 @media print{header.nav,.cursor,.progress,dialog,.scene,.cue,form{display:none!important}body,section,.hero{background:#fff!important;color:#000!important}*{color:#000!important}.js .rv{opacity:1;transform:none;filter:none}.js .hero{height:auto}}
+
+/* QR codes + digital card */
+a.tel{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--gold)}a.tel:hover{color:var(--gold)}
+.qrs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:2rem;max-width:460px}
+.qr{margin:0;padding:14px;background:rgba(255,255,255,.04);border:1px solid var(--ld);border-radius:4px;text-align:center}
+.qbox{background:var(--ivory);padding:6px;border-radius:2px;line-height:0}.qbox svg{width:100%;height:auto;display:block}
+.qr figcaption{margin-top:.9rem;line-height:1.35}.qr figcaption b{display:block;font:600 .74rem/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#fff}.qr figcaption span{font-size:.8rem;color:var(--mute)}
+@media(max-width:420px){.qrs{gap:12px}.qr{padding:10px}}
+.cardpg .wrap{max-width:760px}
+.cardwrap{margin:2rem 0 2.2rem;perspective:1200px}
+#card{display:block;width:100%;height:auto;aspect-ratio:7/4;border-radius:6px;box-shadow:0 40px 80px -30px rgba(0,0,0,.9),0 0 0 1px rgba(196,167,101,.25);background:#0b0c0f}
+.cardpg .actions .btn{padding:1.05rem 1.5rem}
+@media print{.cardpg .actions{display:none}}
