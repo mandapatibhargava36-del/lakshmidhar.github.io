@@ -49,10 +49,10 @@ nav a:hover{background:var(--glass2);color:#fff}
 .portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:190px 190px 16px 16px}
 .chip{position:absolute;padding:10px 16px;font-size:.8rem;border-radius:16px;transform:translateZ(60px);white-space:nowrap;animation:bob 6s ease-in-out infinite}
 .chip b{display:block;color:var(--em2);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
-.chip.a{left:-34px;bottom:110px}.chip.b{right:-26px;top:60px;animation-delay:-3s}
+.chip.a{left:-34px;bottom:110px}.chip.b{right:-26px;top:24px;animation-delay:-3s}
 @keyframes bob{50%{translate:0 -10px}}
 .portrait figcaption{text-align:center;margin-top:16px;color:var(--mute);font-size:.85rem;letter-spacing:.08em}
-@media(max-width:900px){.hero{padding:110px 0 60px;min-height:0}.hero .wrap{grid-template-columns:1fr;text-align:center;gap:46px}.hero .desc{margin-inline:auto}.facts{justify-content:center}.stage{order:-1;width:min(74%,300px)}.chip.a{left:-14px}.chip.b{right:-14px}.btn.ghost{margin:12px 0 0}}
+@media(max-width:900px){.hero{padding:110px 0 60px;min-height:0}.hero .wrap{grid-template-columns:1fr;text-align:center;gap:46px}.hero .desc{margin-inline:auto}.facts{justify-content:center}.stage{order:-1;width:min(74%,300px)}.chip{display:none}.btn.ghost{margin:12px 0 0}}
 /* strip */
 .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding:8px}
 .strip .wrap>div{text-align:center;padding:22px 10px;border-right:1px solid var(--edge)}.strip .wrap>div:last-child{border:0}
