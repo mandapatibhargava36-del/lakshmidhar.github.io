@@ -28,9 +28,12 @@
 <span class="ind" aria-hidden="true"></span></ul></nav></div></header>
 <main id="main" class="doc cardpg"><div class="wrap">
 <p class="eyebrow">Visiting Card</p><h1>Digital visiting card</h1>
-<p class="mute">Identification and contact details only. Save the card as an image or PDF, or add the number to your contacts.</p>
-<div class="cardwrap"><canvas id="card" role="img" aria-label="Digital visiting card"></canvas></div>
-<div class="actions"><button class="btn" id="dl-png" type="button" data-magnetic><span>Download PNG</span></button><button class="btn" id="dl-pdf" type="button" data-magnetic><span>Download PDF</span></button><button class="btn ghost" id="dl-vcf" type="button" data-magnetic><span>Save to contacts</span></button><a class="link" href="index.html">Back to profile</a></div>
+<p class="mute">Identification and contact details only. Front and back. Save the card as an image or PDF, or add the number to your contacts.</p>
+<div class="tabs" role="group" aria-label="Card side"><button type="button" id="tab-front" class="tab" aria-pressed="true">Front</button><button type="button" id="tab-back" class="tab" aria-pressed="false">Back</button></div>
+<div class="cardwrap"><div class="flipper" id="flipper"><canvas id="card" class="face" role="img" aria-label="Front of digital visiting card"></canvas><canvas id="card-back" class="face bk" role="img" aria-label="Back of digital visiting card"></canvas></div></div>
+<p class="fnote" id="addr-note">The office address and location on the back of the card will appear once the advocate provides them.</p>
+<div class="actions"><button class="btn" id="dl-png" type="button" data-magnetic><span>PNG · Front</span></button><button class="btn" id="dl-png-back" type="button" data-magnetic><span>PNG · Back</span></button><button class="btn" id="dl-pdf" type="button" data-magnetic><span>PDF · Both sides</span></button><button class="btn ghost" id="dl-vcf" type="button" data-magnetic><span>Save to contacts</span></button></div>
+<p class="actions" style="margin-top:1.6rem"><a class="link" id="map-link" href="#" hidden target="_blank" rel="noopener">Open location in Maps</a><a class="link" href="index.html">Back to profile</a></p>
 <noscript><p class="mute">Saving the card requires JavaScript. Telephone: <a href="tel:+919505078050">+91 95050 78050</a></p></noscript>
 </div></main><footer class="site"><div class="wrap">
 <div class="top"><a class="brand" href="index.html"><i aria-hidden="true">KL</i><span>Kotha Lakshmidhar</span></a>
