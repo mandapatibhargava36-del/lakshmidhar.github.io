@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://mandapatibhargava36-del.github.io/lakshmidhar.github.io/sitemap.xml

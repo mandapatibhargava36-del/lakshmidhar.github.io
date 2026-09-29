@@ -1,37 +1,34 @@
-# Compliance checklist – advocate website (India)
+# Compliance & content notes – advocate website (India)
 
-Built against the Advocates Act 1961 (s.35), Bar Council of India (BCI) Rules Part VI Ch. II s.V **Rule 36**, and the BCI's 2008 resolution on advocate websites. Rules are amended from time to time – **have the advocate verify against the current BCI Rules and their State Bar Council's directions before going live.** This is not legal advice.
+Designed against the Advocates Act 1961 (s.35) and Bar Council of India (BCI) Rules, Part VI, Ch. II, s.V, **Rule 36** (no solicitation/advertising) as I understand them. Rules are amended from time to time – **the advocate must verify the final site against the current BCI Rules and their State Bar Council's directions.** This is not legal advice.
+
+## Content policy: nothing is invented
+Only two facts are stated as true: the advocate's **name** and that they practise as an **Advocate before the High Court of Andhra Pradesh**. Everything else is a `[BRACKETED PLACEHOLDER]` (class `ph`, dashed underline). The public site therefore carries `noindex, nofollow` until it is filled.
+
+### To go live
+1. Replace every `[PLACEHOLDER]` in `index.html` (search for `class="ph"`), and in `terms.html` / `privacy.html` (contact email, place of jurisdiction).
+2. Set the email in `<form id="cf" data-to="">` – until then the form shows an "activates once email is added" message.
+3. Delete the `<meta name="robots" content="noindex, nofollow">` line from all three pages.
+4. Replace the illustrated gallery (`assets/g1–g6.svg`) with the advocate's own photographs of chambers/library only, or delete the gallery block.
+5. Update canonical/OG URLs, `sitemap.xml` and `robots.txt` if the domain changes.
+6. Have the advocate/counsel review Terms and Privacy text.
 
 ## Shown (permitted, factual)
-Name; address, phone, email; enrolment number and date; State Bar Council; qualifications; areas of practice; bar association memberships and positions; languages; courts of practice; scholarly writing (citations only).
+Name; contact details; enrolment number/date; State Bar Council; qualifications; areas of practice; bar memberships/positions; languages; courts; publications (citations only).
 
 ## Deliberately NOT shown
-| Not shown | Reason |
-|---|---|
-| Testimonials, reviews, ratings | Rule 36 – advertisement/solicitation |
-| Case results, "wins", notable/reported matters, client names/logos | Rule 36; client confidentiality (BSA 2023 s.132; BCI Rules Ch. II s.II) |
-| Fees, packages, "free consultation", discounts | Rule 36 – inducement |
-| "Best/top/leading/expert/specialist", rankings, awards for promotion | Rule 36 – self-laudation |
-| "Book now / Hire us" CTAs, live chat, WhatsApp buttons, popups, newsletters | Solicitation |
-| Ashoka emblem, court logos, court/judge imagery | State Emblem of India (Prohibition of Improper Use) Act 2005 |
-| Commentary on pending matters | Contempt of Courts Act 1971 |
-| "Senior Advocate" (unless designated by a court) | Advocates Act s.16 |
-| Analytics, ad pixels, third-party fonts/scripts | DPDP Act 2023 – data minimisation |
+Testimonials/reviews/ratings; case results, "wins", success rates, client names; fees, "free consultation", discounts; "best/top/leading/expert/specialist", rankings, promotional awards; "hire us/book now" CTAs, live chat, WhatsApp buttons, pop-ups, newsletters; State Emblem/court logos (State Emblem of India Act 2005); commentary on pending matters (Contempt of Courts Act 1971); "Senior Advocate" unless court-designated (Advocates Act s.16); analytics/ad pixels/third-party fonts or scripts (DPDP Act 2023 data minimisation).
 
 ## Built in
-- Click-through disclaimer at entry (visitor seeks information voluntarily; no solicitation; no advice); static fallback in `<noscript>` and in the footer of every page.
-- Terms & Disclaimer and Privacy Notice pages (DPDP Act 2023 consent, rights, grievance contact).
-- Contact form with explicit consent checkbox, "no confidential info" warning, and no server-side storage (opens the visitor's email app).
-- References to BNS/BNSS/BSA 2023 in place of IPC/CrPC/IEA.
-
-## Before going live
-1. Replace every yellow-highlighted `placeholder` with real, verified facts (search for `class="placeholder"`), then remove the highlight class and the "Dummy content" footer note.
-2. Do not add photos, social-media links, blog posts about cases, or paid promotion.
-3. Have the advocate/counsel review Terms and Privacy text.
-4. Keep information accurate and updated; the advocate is responsible for the content (professional misconduct exposure under Advocates Act s.35).
+- Click-through BCI acknowledgement at entry; disclaimer in the footer of every page and in `<noscript>`.
+- Terms & Disclaimer and Privacy Notice (DPDP Act 2023: consent, rights, grievance route).
+- Contact form: consent checkbox, "no confidential info / no advocate–client relationship" notice, and **no server-side storage** (opens the visitor's own email app).
+- BNS / BNSS / BSA 2023 terminology where laws are named.
+- Self-hosted fonts (Cormorant Garamond, Manrope); no external requests.
 
 ## Advocate's photograph (caution)
-The site shows a single professional portrait (`assets/portrait.jpg` is a dummy; replace with the advocate's own JPG/WebP and update the `<img>` in `index.html`). A portrait of the advocate is not in the list of items I understand the BCI's 2008 resolution to permit, though Rule 36 specifically bars photographs published *in connection with cases*. **Confirm with the State Bar Council before publishing**, or remove the `<figure class="portrait">` block. Use a plain professional headshot – no court premises, clients, media or award imagery.
+The portrait (`assets/portrait.jpg` / `.webp`) is the advocate's own headshot. A headshot is not in the list of items I understand the BCI's 2008 resolution to permit, though Rule 36 specifically bars photographs published *in connection with cases*. **Confirm with the State Bar Council before publishing**, or remove the `<figure class="portrait">` block. Keep to a plain professional portrait.
 
-## Gallery
-The gallery (`#gallery` in `index.html`, images `assets/g1–g6.svg`) currently holds **illustrations**. Replace them with the advocate's own photographs of neutral subjects only: chambers, library, court building exteriors where photography is permitted. Do **not** add clients, cases, hearings, seminars/award events, media appearances, or anything that could read as promotion (Rule 36). Update the `data-src`, `data-cap` and `alt` text for each item.
+## Technical notes
+- The hero 3D scene is pure CSS 3D (no WebGL/libraries) driven by scroll – see `assets/scene.js`. On phones it uses fewer particles, a lighter frame rate and a background scene; with `prefers-reduced-motion` or short landscape screens it renders the finished composition statically.
+- Custom cursor, tilt and magnetic buttons are desktop-pointer only.
