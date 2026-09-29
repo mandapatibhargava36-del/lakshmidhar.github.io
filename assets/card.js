@@ -49,18 +49,13 @@
     c.fillStyle='#ece7db';c.font='500 26px Manrope,system-ui,sans-serif';c.fillText(CARD.phone,72,520);
     if(mapsUrl)qrTile(c,mapsUrl,'SCAN FOR LOCATION');
     else{placeholderBox(c,'[LOCATION QR]',W-72-250,150,250,250);c.fillStyle='#a4a9b5';c.font='600 14px Manrope,system-ui,sans-serif';c.textAlign='center';spaced(c,'SCAN FOR LOCATION',W-72-125,184+250,'3px');c.textAlign='left'}}
-  function draw(){drawFront();drawBack()}
+  function draw(){try{drawFront()}catch(e){}try{drawBack()}catch(e){}}
   var fonts=document.fonts?Promise.all([document.fonts.load('500 40px "Cormorant Garamond"'),document.fonts.load('italic 500 40px "Cormorant Garamond"'),document.fonts.load('600 30px "Cormorant Garamond"'),document.fonts.load('500 20px Manrope'),document.fonts.load('600 16px Manrope')]):Promise.resolve();
   fonts.then(draw,draw);
   var summary=[CARD.name,CARD.role,CARD.court,CARD.phone,CARD.email].filter(Boolean).join(', ');
   front.setAttribute('aria-label','Front of digital visiting card: '+summary);
   back.setAttribute('aria-label','Back of digital visiting card: '+(hasAddr?'office address '+CARD.address.join(', ')+', with a QR code to the location':'office address and location to be added'));
 
-  /* flip UI */
-  var fl=document.getElementById('flipper'),tf=document.getElementById('tab-front'),tb=document.getElementById('tab-back');
-  function side(isBack){fl.classList.toggle('flipped',isBack);tf.setAttribute('aria-pressed',!isBack);tb.setAttribute('aria-pressed',isBack);front.setAttribute('aria-hidden',isBack);back.setAttribute('aria-hidden',!isBack)}
-  tf.addEventListener('click',function(){side(false)});tb.addEventListener('click',function(){side(true)});
-  fl.addEventListener('click',function(){side(!fl.classList.contains('flipped'))});side(false);
   var note=document.getElementById('addr-note');if(note)note.hidden=hasAddr;
   var mp=document.getElementById('map-link');if(mp){if(mapsUrl){mp.href=mapsUrl;mp.hidden=false}else mp.hidden=true}
 

@@ -275,21 +275,15 @@ a.tel{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--gold)}a
 .cardpg .actions .btn{padding:1.05rem 1.5rem}
 @media print{.cardpg .actions{display:none}}
 
-/* card flip */
-.tabs{display:flex;gap:8px;margin-top:1.6rem}
-.tab{font:600 .74rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:.85rem 1.4rem;background:transparent;color:var(--mute);border:1px solid var(--ld);cursor:pointer;transition:all .3s}
-.tab[aria-pressed=true]{color:var(--ink);background:var(--gold);border-color:var(--gold)}
-.flipper{position:relative;aspect-ratio:7/4;transform-style:preserve-3d;transition:transform .9s var(--ease);cursor:pointer}
-.flipper.flipped{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.face.bk{transform:rotateY(180deg)}
-.cardwrap{margin:1.4rem 0 1.4rem;perspective:1400px}
+/* card sides (front and back always visible) */
+.sides{display:grid;gap:30px;margin:2rem 0 1.4rem}
+.side{margin:0}
+.side figcaption{font:600 .72rem/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+.face{display:block;width:100%;height:auto}
 .fnote[hidden],#map-link[hidden]{display:none}
-@media(prefers-reduced-motion:reduce){.flipper{transition:none}}
-.cardpg .fnote{margin:1.4rem 0 1.8rem}.cardpg .actions{margin-top:1.4rem}
-
 /* robustness: [hidden] must always win; download helpers */
 [hidden]{display:none!important}
 .actions.sm{margin-top:.9rem;gap:10px}.actions.sm .btn{padding:.8rem 1.1rem;font-size:.7rem}
 button.inl{background:none;border:0;padding:0;font:inherit;color:var(--gold);text-decoration:underline;cursor:pointer}
 #dl-status a{color:var(--gold)}
+.cardpg .fnote{margin:1.4rem 0 1.8rem}.cardpg .actions{margin-top:1.4rem}
