@@ -287,3 +287,9 @@ a.tel{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--gold)}a
 .fnote[hidden],#map-link[hidden]{display:none}
 @media(prefers-reduced-motion:reduce){.flipper{transition:none}}
 .cardpg .fnote{margin:1.4rem 0 1.8rem}.cardpg .actions{margin-top:1.4rem}
+
+/* robustness: [hidden] must always win; download helpers */
+[hidden]{display:none!important}
+.actions.sm{margin-top:.9rem;gap:10px}.actions.sm .btn{padding:.8rem 1.1rem;font-size:.7rem}
+button.inl{background:none;border:0;padding:0;font:inherit;color:var(--gold);text-decoration:underline;cursor:pointer}
+#dl-status a{color:var(--gold)}

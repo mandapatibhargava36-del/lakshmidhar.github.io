@@ -64,7 +64,25 @@
   var note=document.getElementById('addr-note');if(note)note.hidden=hasAddr;
   var mp=document.getElementById('map-link');if(mp){if(mapsUrl){mp.href=mapsUrl;mp.hidden=false}else mp.hidden=true}
 
-  function save(blob,name){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},2000)}
+  var st=document.getElementById('dl-status'),lastURL=null;
+  function save(blob,name){
+    if(lastURL)URL.revokeObjectURL(lastURL);
+    var url=lastURL=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
+    if(!st)return;
+    st.hidden=false;st.textContent='';
+    st.appendChild(document.createTextNode('Saving “'+name+'”. If nothing downloaded, '));
+    var o=document.createElement('a');o.href=url;o.target='_blank';o.rel='noopener';o.textContent='open it in a new tab';st.appendChild(o);
+    var f=null;try{f=new File([blob],name,{type:blob.type})}catch(e){}
+    if(f&&navigator.canShare&&navigator.canShare({files:[f]})){
+      st.appendChild(document.createTextNode(' or '));
+      var b=document.createElement('button');b.type='button';b.className='inl';b.textContent='share it';
+      b.addEventListener('click',function(){navigator.share({files:[f],title:name}).catch(function(){})});st.appendChild(b)}
+    st.appendChild(document.createTextNode('.'))}
+  function both(){
+    var pad=40,c=document.createElement('canvas');c.width=W+pad*2;c.height=H*2+pad*3;
+    var x=c.getContext('2d');x.fillStyle='#07080a';x.fillRect(0,0,c.width,c.height);
+    x.drawImage(front,pad,pad);x.drawImage(back,pad,pad*2+H);return c}
   function pdf(pages,pw,ph){
     var enc=new TextEncoder(),parts=[],off=[],len=0,n=pages.length;
     function push(x){var b=typeof x==='string'?enc.encode(x):x;parts.push(b);len+=b.length}
@@ -84,6 +102,7 @@
     return new Blob(parts,{type:'application/pdf'})}
   function jpg(cv){return new Promise(function(res){cv.toBlob(function(b){b.arrayBuffer().then(function(ab){res(new Uint8Array(ab))})},'image/jpeg',.95)})}
   var base='Kotha-Lakshmidhar-Visiting-Card';
+  document.getElementById('dl-png-both').addEventListener('click',function(){both().toBlob(function(b){save(b,base+'-front-and-back.png')},'image/png')});
   document.getElementById('dl-png').addEventListener('click',function(){front.toBlob(function(b){save(b,base+'-front.png')},'image/png')});
   document.getElementById('dl-png-back').addEventListener('click',function(){back.toBlob(function(b){save(b,base+'-back.png')},'image/png')});
   document.getElementById('dl-pdf').addEventListener('click',function(){Promise.all([jpg(front),jpg(back)]).then(function(p){save(pdf(p,252,144),base+'.pdf')})});
