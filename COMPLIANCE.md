@@ -29,3 +29,6 @@ Name; address, phone, email; enrolment number and date; State Bar Council; quali
 2. Do not add photos, social-media links, blog posts about cases, or paid promotion.
 3. Have the advocate/counsel review Terms and Privacy text.
 4. Keep information accurate and updated; the advocate is responsible for the content (professional misconduct exposure under Advocates Act s.35).
+
+## Advocate's photograph (caution)
+The site shows a single professional portrait (`assets/portrait.svg` is a dummy; replace with the advocate's own JPG/WebP and update the `<img>` in `index.html`). A portrait of the advocate is not in the list of items I understand the BCI's 2008 resolution to permit, though Rule 36 specifically bars photographs published *in connection with cases*. **Confirm with the State Bar Council before publishing**, or remove the `<figure class="portrait">` block. Use a plain professional headshot – no court premises, clients, media or award imagery.
