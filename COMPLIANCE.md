@@ -32,3 +32,6 @@ Name; address, phone, email; enrolment number and date; State Bar Council; quali
 
 ## Advocate's photograph (caution)
 The site shows a single professional portrait (`assets/portrait.svg` is a dummy; replace with the advocate's own JPG/WebP and update the `<img>` in `index.html`). A portrait of the advocate is not in the list of items I understand the BCI's 2008 resolution to permit, though Rule 36 specifically bars photographs published *in connection with cases*. **Confirm with the State Bar Council before publishing**, or remove the `<figure class="portrait">` block. Use a plain professional headshot – no court premises, clients, media or award imagery.
+
+## Gallery
+The gallery (`#gallery` in `index.html`, images `assets/g1–g6.svg`) currently holds **illustrations**. Replace them with the advocate's own photographs of neutral subjects only: chambers, library, court building exteriors where photography is permitted. Do **not** add clients, cases, hearings, seminars/award events, media appearances, or anything that could read as promotion (Rule 36). Update the `data-src`, `data-cap` and `alt` text for each item.
