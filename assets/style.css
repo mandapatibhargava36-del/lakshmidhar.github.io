@@ -1,6 +1,6 @@
 :root{--bg:#050706;--bg2:#0a100e;--em:#10b981;--em2:#34d399;--emd:#065f46;--gold:#e7c873;--ink:#eef3f1;--mute:#a3b1ac;--glass:rgba(255,255,255,.055);--glass2:rgba(255,255,255,.09);--edge:rgba(255,255,255,.14);--max:1160px;--r:22px}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px;background:var(--bg)}
-body{margin:0;font:17px/1.7 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;font:17px/1.7 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:clip}
 h1,h2,h3{font-family:Georgia,"Palatino Linotype",serif;line-height:1.15;margin:0;color:#fff;letter-spacing:-.01em}
 a{color:var(--em2)}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
@@ -29,7 +29,7 @@ nav a:hover{background:var(--glass2);color:#fff}
 .burger span::before{position:absolute;top:-6px;left:0}.burger span::after{position:absolute;top:6px;left:0}
 @media(max-width:900px){.burger{display:block}nav{position:absolute;left:14px;right:14px;top:calc(100% + 8px);display:none;background:rgba(6,10,9,.98);backdrop-filter:blur(20px);border:1px solid var(--edge);border-radius:18px;padding:8px}nav.open{display:block}nav ul{flex-direction:column}nav a{padding:14px 16px}}
 /* hero */
-.hero{position:relative;padding:150px 0 90px;min-height:100vh;display:flex;align-items:center}
+.hero{position:relative;overflow-x:clip;padding:150px 0 90px;min-height:100vh;display:flex;align-items:center}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;width:100%}
 .eyebrow{display:inline-block;color:var(--em2);text-transform:uppercase;letter-spacing:.22em;font-size:.75rem;font-weight:600;margin:0 0 16px}
 .hero .eyebrow{padding:7px 16px;border-radius:999px;border:1px solid rgba(52,211,153,.4);background:rgba(16,185,129,.1)}
@@ -68,7 +68,7 @@ h2{font-size:clamp(2rem,4.5vw,3.1rem);margin-bottom:14px}
 .quote{font-family:Georgia,serif;font-size:1.2rem;position:relative}
 .quote::before{content:"“";position:absolute;top:-6px;left:18px;font-size:6rem;color:var(--em);opacity:.35;line-height:1}
 .quote p{margin:26px 0 0}.quote small{display:block;margin-top:14px;font:.82rem "Segoe UI",sans-serif;color:var(--mute)}
-.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
 .card{position:relative;padding:32px 28px;transform-style:preserve-3d;transition:transform .15s ease-out,border-color .3s;overflow:hidden}
 .card::after{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(52,211,153,.18),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
 .card:hover{border-color:rgba(52,211,153,.5)}.card:hover::after{opacity:1}
@@ -117,3 +117,10 @@ ul.plain{padding-left:20px;color:var(--mute)}
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
 @media print{.bg,header.site,dialog,form,.burger{display:none}body{background:#fff;color:#000}*{color:#000!important;background:none!important}.rv{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+@media(max-width:1200px){.chip.a{left:-12px}.chip.b{right:-8px}.ring{inset:-22px}}
+@media(max-width:900px){.ring{inset:-18px}}
+@media(max-width:420px){.wrap{padding:0 16px}header.site .wrap{padding:0 10px 0 14px}.brand{font-size:.95rem;gap:8px}.brand i{width:34px;height:34px}section{padding:64px 0}.pad,form{padding:22px}.card{padding:26px 22px}.btn{padding:13px 24px}.hero .wrap{gap:36px}.stage{width:min(78%,280px)}.gal{grid-auto-rows:130px;gap:12px}dialog{padding:24px}}
+@media(max-height:480px) and (orientation:landscape){.hero{padding:96px 0 40px;min-height:0}.stage{width:min(40%,240px)}}
+@media(min-width:1600px){:root{--max:1320px}body{font-size:18px}.gal{grid-auto-rows:230px}header.site .wrap{max-width:1240px}}
+@media(min-width:2200px){:root{--max:1560px}body{font-size:20px}header.site .wrap{max-width:1440px}.gal{grid-auto-rows:280px}}
