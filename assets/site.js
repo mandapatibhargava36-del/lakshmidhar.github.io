@@ -66,6 +66,7 @@
       c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
         c.style.transform='rotateY('+((x-.5)*11)+'deg) rotateX('+((.5-y)*11)+'deg) translateZ(0)';c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')});
       c.addEventListener('pointerleave',function(){c.style.transform=''})});
+    document.addEventListener('pointermove',function(e){var t=e.target.closest&&e.target.closest('.tile');if(!t)return;var r=t.getBoundingClientRect();t.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');t.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%')},{passive:true});
     $$('[data-magnetic]').forEach(function(b){
       b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--bx',((e.clientX-r.left-r.width/2)*.22).toFixed(1)+'px');b.style.setProperty('--by',((e.clientY-r.top-r.height/2)*.35).toFixed(1)+'px')});
       b.addEventListener('pointerleave',function(){b.style.setProperty('--bx','0px');b.style.setProperty('--by','0px')})});
